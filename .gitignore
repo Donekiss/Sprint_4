@@ -1,0 +1,6 @@
+# игронирование файлов с расширениями .idea .build .target
+*.idea
+
+*.build
+
+.target
