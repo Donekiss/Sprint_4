@@ -15,7 +15,6 @@ public class HeaderTests {
         this.driver.get("https://qa-scooter.praktikum-services.ru/");
         SamokatHomePage objHomePage = new SamokatHomePage(this.driver);
         objHomePage.logoYandexHomePageClick();
-        //Thread.sleep(3000L);
         objHomePage.checkYandexMainPage();
     }
 
@@ -25,7 +24,6 @@ public class HeaderTests {
         this.driver.get("https://qa-scooter.praktikum-services.ru/");
         SamokatHomePage objHomePage = new SamokatHomePage(this.driver);
         objHomePage.logoSamokatHomePageClick();
-        //Thread.sleep(3000L);
         objHomePage.checkSamokatMainPage();
     }
 
@@ -35,7 +33,6 @@ public class HeaderTests {
         this.driver.get("https://qa-scooter.praktikum-services.ru/");
         SamokatHomePage objHomePage = new SamokatHomePage(this.driver);
         objHomePage.orderButtonTopHomePageClick();
-        //Thread.sleep(3000L);
         objHomePage.checkWeGetAnOrderForm();
     }
 

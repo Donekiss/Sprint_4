@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class AboutRent {
     private WebDriver driver;
     private By nameOfThePage = By.className("Order_Header__BZXOb");
@@ -20,7 +21,7 @@ public class AboutRent {
     private String commentCourier = "Могу ли я забрать самокат прямо возле метро \"Щёлковская\" на 4-м выходе?";
     private By backButton = By.xpath("/html/body/div/div/div[2]/div[3]/button[1]");
     private By makeOrder = By.xpath("/html/body/div/div/div[2]/div[3]/button[2]");
-    private By confirmButton = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button[2]");
+    private By confirmButton = By.xpath("/html/body/div/div/div[2]/div[5]/div[2]/button[2]"); //
     private String expectedPageBug = "https://qa-scooter.praktikum-services.ru/track?t=723106";
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     String date;
@@ -67,7 +68,7 @@ public class AboutRent {
     }
 
     public void confirmMyOrder() {
-        (new WebDriverWait(this.driver, Duration.ofSeconds(3L))).until(ExpectedConditions.visibilityOfElementLocated(this.confirmButton));
+        (new WebDriverWait(this.driver, Duration.ofSeconds(6L))).until(ExpectedConditions.visibilityOfElementLocated(this.confirmButton));
         this.driver.findElement(this.confirmButton).click();
     }
 }
