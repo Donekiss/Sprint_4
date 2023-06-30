@@ -12,12 +12,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 @RunWith(Parameterized.class)
 public class TestsOrderPage {
     private static WebDriver driver;
+    String name;
+    String surname;
+    String address;
+    String metroStation;
+    String phoneNumber;
     OrderPage orderPage;
     AboutRent aboutRent;
-
     public TestsOrderPage(String name, String surname, String address, String metroStation, String phoneNumber) {
+        this.name = name;
+        this.surname = surname;
+        this.address = address;
+        this.metroStation = metroStation;
+        this.phoneNumber = phoneNumber;
     }
-
     @Before
     public void pageOpen() {
         driver = new ChromeDriver();
@@ -33,11 +41,11 @@ public class TestsOrderPage {
     @Test
     public void fillingTheOrderForm() throws InterruptedException {
         this.orderPage = new OrderPage(driver);
-        this.orderPage.setNameFieldOrderPage();
-        this.orderPage.setSurnameFieldOrderButton();
-        this.orderPage.setAddressFieldOrderButton();
-        this.orderPage.setMetroStationOrderButton();
-        this.orderPage.setPhoneNumberOrderButton();
+        this.orderPage.setNameFieldOrderPage(name);
+        this.orderPage.setSurnameFieldOrderButton(surname);
+        this.orderPage.setAddressFieldOrderButton(address);
+        this.orderPage.setMetroStationOrderButton(metroStation);
+        this.orderPage.setPhoneNumberOrderButton(phoneNumber);
         this.orderPage.proceedButtonOrderButtonClick();
         this.aboutRent = new AboutRent(driver);
         this.aboutRent.setNameFieldAboutRent();

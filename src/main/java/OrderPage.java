@@ -11,41 +11,36 @@ public class OrderPage {
     private By shel40k = By.className("Order_Text__2broi");
     private By phoneNumberOrderButton = By.xpath("/html/body/div/div/div[2]/div[2]/div[5]/input");
     private By proceedButtonOrderButton = By.xpath("/html/body/div/div/div[2]/div[3]/button");
-    final String name = "Иван";
-    final String surname = "Трикота";
-    final String address = "Москва, 13-я Парковая, 27, к. 4, кв. 38";
-    final String metroStation = "Щёлковская";
-    final String phoneNumber = "+79991634436";
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void setNameFieldOrderPage() {
+    public void setNameFieldOrderPage(String name) {
         this.driver.findElement(this.nameFieldOrderButton).isEnabled();
         this.driver.findElement(this.nameFieldOrderButton).clear();
         this.driver.findElement(this.nameFieldOrderButton).sendKeys(new CharSequence[]{name});
     }
 
-    public void setSurnameFieldOrderButton() {
+    public void setSurnameFieldOrderButton(String surname) {
         this.driver.findElement(this.surnameFieldOrderButton).isEnabled();
         this.driver.findElement(this.surnameFieldOrderButton).clear();
         this.driver.findElement(this.surnameFieldOrderButton).sendKeys(new CharSequence[]{surname});
     }
 
-    public void setAddressFieldOrderButton() {
+    public void setAddressFieldOrderButton(String address) {
         this.driver.findElement(this.addressFieldOrderButton).isEnabled();
         this.driver.findElement(this.addressFieldOrderButton).clear();
         this.driver.findElement(this.addressFieldOrderButton).sendKeys(new CharSequence[]{address});
     }
 
-    public void setMetroStationOrderButton() {
+    public void setMetroStationOrderButton(String metroStation) {
         this.driver.findElement(this.metroStationOrderButton).click();
         this.driver.findElement(this.metroStationOrderButton).sendKeys(new CharSequence[]{metroStation});
         this.driver.findElement(this.shel40k).click();
     }
 
-    public void setPhoneNumberOrderButton() {
+    public void setPhoneNumberOrderButton(String phoneNumber) {
         this.driver.findElement(this.phoneNumberOrderButton).isEnabled();
         this.driver.findElement(this.phoneNumberOrderButton).clear();
         this.driver.findElement(this.phoneNumberOrderButton).sendKeys(new CharSequence[]{phoneNumber});
