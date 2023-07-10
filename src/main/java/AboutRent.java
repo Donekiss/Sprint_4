@@ -31,9 +31,6 @@ public class AboutRent {
         this.driver = driver;
     }
 
-    //public By getFormName() {
-    //    return this.formName;
-    //}
 
     public String getExpectedPageBug() {
         return this.expectedPageBug;

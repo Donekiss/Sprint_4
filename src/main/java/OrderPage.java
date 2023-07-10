@@ -50,7 +50,5 @@ public class OrderPage {
         this.driver.findElement(this.proceedButtonOrderButton).click();
     }
 
-    //public By getFormName() {
-       // return this.formName;
-    //}
+
 }
