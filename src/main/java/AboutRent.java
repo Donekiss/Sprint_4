@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AboutRent {
     private WebDriver driver;
     private By nameOfThePage = By.className("Order_Header__BZXOb");
-    private By formName = By.xpath("/html/body/div/div/div[2]/div[1]");
+    //private By formName = By.xpath("/html/body/div/div/div[2]/div[1]");
     private By whenBringSamokat = By.xpath("/html/body/div/div/div[2]/div[2]/div[1]/div/div/input");
     private By rentTime = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/div[1]/div[1]");
     private By rentFor2Days = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/div[2]/div[2]");
@@ -31,9 +31,9 @@ public class AboutRent {
         this.driver = driver;
     }
 
-    public By getFormName() {
-        return this.formName;
-    }
+    //public By getFormName() {
+    //    return this.formName;
+    //}
 
     public String getExpectedPageBug() {
         return this.expectedPageBug;

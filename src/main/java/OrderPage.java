@@ -3,7 +3,7 @@ import org.openqa.selenium.WebDriver;
 
 public class OrderPage {
     private WebDriver driver;
-    private By formName = By.xpath("/html/body/div/div/div[2]/div[1]");
+    //private By formName = By.xpath("/html/body/div/div/div[2]/div[1]");
     private By nameFieldOrderButton = By.xpath("/html/body/div/div/div[2]/div[2]/div[1]/input");
     private By surnameFieldOrderButton = By.xpath("/html/body/div/div/div[2]/div[2]/div[2]/input");
     private By addressFieldOrderButton = By.xpath("/html/body/div/div/div[2]/div[2]/div[3]/input");
@@ -50,7 +50,7 @@ public class OrderPage {
         this.driver.findElement(this.proceedButtonOrderButton).click();
     }
 
-    public By getFormName() {
-        return this.formName;
-    }
+    //public By getFormName() {
+       // return this.formName;
+    //}
 }

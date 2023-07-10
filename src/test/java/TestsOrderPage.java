@@ -6,12 +6,11 @@ import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 @RunWith(Parameterized.class)
 public class TestsOrderPage {
-    private static WebDriver driver;
+    private WebDriver driver;
     String name;
     String surname;
     String address;
@@ -19,7 +18,13 @@ public class TestsOrderPage {
     String phoneNumber;
     OrderPage orderPage;
     AboutRent aboutRent;
-    public TestsOrderPage(String name, String surname, String address, String metroStation, String phoneNumber) {
+    By orderButton;
+    SamokatHomePage samokatHomePage;
+    static By orderButtonTopHomePage = By.xpath("//div[contains(@class, 'Header_Nav__AGCXC')]/button[1]");
+    static By orderButtonFloorHomePage = By.xpath("//div[contains(@class, 'Home_FinishButton__1_cWm')]/button");
+
+    public TestsOrderPage(By orderButton, String name, String surname, String address, String metroStation, String phoneNumber) {
+        this.orderButton = orderButton;
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -29,17 +34,19 @@ public class TestsOrderPage {
     @Before
     public void pageOpen() {
         driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/order");
-        (new WebDriverWait(driver, Duration.ofSeconds(6L))).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div[2]/div[1]")));
+        driver.get("https://qa-scooter.praktikum-services.ru");
+        new WebDriverWait(driver, Duration.ofSeconds(6L));
     }
-
     @Parameters
     public static Object[][] getTestData() {
-        return new Object[][]{{"Иван", "Трикота", "Москва, 13-я Парковая, 27, к. 4, кв. 38", "Щёлковская", "+79991634436"},
+        return new Object[][]{{orderButtonTopHomePage,"Иван", "Трикота", "Москва, 13-я Парковая, 27, к. 4, кв. 38", "Щёлковская", "+79991634436"},
+                              {orderButtonFloorHomePage, "Иванка", "Трикота", "Москва, 13-я Парковая, 27, к. 4, кв. 38", "Щёлковская", "+79991634438"},
                               };
     }
     @Test
     public void fillingTheOrderForm() throws InterruptedException {
+        this.samokatHomePage = new SamokatHomePage(driver);
+        this.samokatHomePage.orderButtonHomePageClick(orderButton);
         this.orderPage = new OrderPage(driver);
         this.orderPage.setNameFieldOrderPage(name);
         this.orderPage.setSurnameFieldOrderButton(surname);

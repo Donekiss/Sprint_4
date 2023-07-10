@@ -10,12 +10,12 @@ public class SamokatHomePage {
     private WebDriver driver;
     private By logoYandexHomePage = By.xpath("/html/body/div/div/div/div[1]/div[1]/a[1]/img");
     private By logoSamokatHomePage = By.xpath("/html/body/div/div/div/div[1]/div[1]/a[2]/img");
-    private By orderButtonTopHomePage = By.xpath("/html/body/div/div/div/div[1]/div[2]/button[1]");
+    private By orderButtonTopHomePage = By.xpath("//div[contains(@class, 'Header_Nav__AGCXC')]/button[1]");
     private By statusButtonHomePage = By.xpath("/html/body/div/div/div/div[1]/div[2]/button[2]");
     private By inputFieldHomePage = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/input[1]");
     private final String inputFieldNumberHomePage = "666";
     private By goButtonHomePage = By.xpath("/html/body/div/div/div/div[1]/div[3]/button");
-    private By orderButtonFloorHomePage = By.xpath("/html/body/div/div/div/div[4]/div[2]/div[5]/button");
+    private By orderButtonFloorHomePage = By.xpath("//div[contains(@class, 'Home_FinishButton__1_cWm')]/button");
     private By howMuchIsSamokat = By.id("accordion__heading-0");
     private By respond1 = By.xpath("/html/body/div/div/div/div[5]/div[2]/div/div[1]/div[2]/p");
     String textRespond1 = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
@@ -26,6 +26,7 @@ public class SamokatHomePage {
     private By charging = By.id("accordion__heading-5");
     private By cancelOrder = By.id("accordion__heading-6");
     private By outsideMoscow = By.id("accordion__heading-7");
+    private By orderButton;
 
     public SamokatHomePage(WebDriver driver) {
         this.driver = driver;
@@ -94,6 +95,13 @@ public class SamokatHomePage {
         System.out.println("\nМы перешли на форму заказа самоката по следующему адресу: " + expected + "\nтакого заказа не существует, так как номер заказа пробный, в целях проверки перехода на страницу статуса заказа по номеру.");
     }
 
+    public void orderButtonHomePageClick(By orderButton) {
+        WebElement element = this.driver.findElement(orderButton);
+        ((JavascriptExecutor)this.driver).executeScript("arguments[0].scrollIntoView();", new Object[]{element});
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3L));
+        this.driver.findElement(orderButton).click();
+        this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5L));
+    }
     public void orderButtonFloorHomePageClick() {
         WebElement element = this.driver.findElement(orderButtonFloorHomePage);
         ((JavascriptExecutor)this.driver).executeScript("arguments[0].scrollIntoView();", new Object[]{element});

@@ -28,12 +28,20 @@ public class HeaderTests {
     }
 
     @Test
-    public void checkOrderButton() throws InterruptedException {
+    public void checkOrderTopButton() throws InterruptedException {
         this.driver = new ChromeDriver();
         this.driver.get("https://qa-scooter.praktikum-services.ru/");
         SamokatHomePage objHomePage = new SamokatHomePage(this.driver);
         objHomePage.orderButtonTopHomePageClick();
         objHomePage.checkWeGetAnOrderForm();
+    }
+    @Test
+    public void checkOrderFloorButton() throws InterruptedException {
+        this.driver = new ChromeDriver();
+        this.driver.get("https://qa-scooter.praktikum-services.ru/");
+        SamokatHomePage objHomePage = new SamokatHomePage(this.driver);
+        objHomePage.orderButtonFloorHomePageClick();
+        objHomePage.checkWeGetAnOrderForm2();
     }
 
     @Test
