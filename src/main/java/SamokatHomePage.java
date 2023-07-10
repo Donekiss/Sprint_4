@@ -10,12 +10,12 @@ public class SamokatHomePage {
     private WebDriver driver;
     private By logoYandexHomePage = By.xpath("/html/body/div/div/div/div[1]/div[1]/a[1]/img");
     private By logoSamokatHomePage = By.xpath("/html/body/div/div/div/div[1]/div[1]/a[2]/img");
-    private By orderButtonTopHomePage = By.xpath("//div[contains(@class, 'Header_Nav__AGCXC')]/button[1]");
+    private static By orderButtonTopHomePage = By.xpath("//div[contains(@class, 'Header_Nav__AGCXC')]/button[1]");
     private By statusButtonHomePage = By.xpath("/html/body/div/div/div/div[1]/div[2]/button[2]");
     private By inputFieldHomePage = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/input[1]");
     private final String inputFieldNumberHomePage = "666";
     private By goButtonHomePage = By.xpath("/html/body/div/div/div/div[1]/div[3]/button");
-    private By orderButtonFloorHomePage = By.xpath("//div[contains(@class, 'Home_FinishButton__1_cWm')]/button");
+    private static By orderButtonFloorHomePage = By.xpath("//div[contains(@class, 'Home_FinishButton__1_cWm')]/button");
     private By howMuchIsSamokat = By.id("accordion__heading-0");
     private By respond1 = By.xpath("/html/body/div/div/div/div[5]/div[2]/div/div[1]/div[2]/p");
     String textRespond1 = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
@@ -115,6 +115,14 @@ public class SamokatHomePage {
         String actual = this.driver.getCurrentUrl().toString();
         Assert.assertEquals("\nФорма заказа не открылась... ", expected, actual);
         System.out.println("\nМы перешли на форму заказа самоката по следующему адресу: " + expected);
+    }
+
+    public static By getOrderButtonFloorHomePage() {
+        return orderButtonFloorHomePage;
+    }
+
+    public static By getOrderButtonTopHomePage() {
+        return orderButtonTopHomePage;
     }
 
     public void howMuchIsSamokatClick() {

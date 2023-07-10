@@ -20,8 +20,8 @@ public class TestsOrderPage {
     AboutRent aboutRent;
     By orderButton;
     SamokatHomePage samokatHomePage;
-    static By orderButtonTopHomePage = By.xpath("//div[contains(@class, 'Header_Nav__AGCXC')]/button[1]");
-    static By orderButtonFloorHomePage = By.xpath("//div[contains(@class, 'Home_FinishButton__1_cWm')]/button");
+    static By orderButtonTopHomePage = SamokatHomePage.getOrderButtonTopHomePage();
+    static By orderButtonFloorHomePage = SamokatHomePage.getOrderButtonFloorHomePage();
 
     public TestsOrderPage(By orderButton, String name, String surname, String address, String metroStation, String phoneNumber) {
         this.orderButton = orderButton;
